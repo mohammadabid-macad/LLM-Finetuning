@@ -24,10 +24,11 @@ git clone https://github.com/jomi13/LLM-Finetuning
 --This project contains a few scripts that can help you build a custom dataset for finetune:
 - `01_scrape_text` is an example of a web scraper that collects a text corpus.
 - `02_cleanup` merges and cleans the text collected previously. 
-NOTE: If you want to use a corpus of text you already have, or want to extract one from a PDF (check Part 2 to find out how), you can disregard the scripts before.
 - `03_summarize` adds an intermediate step of processing our text before we use it in finetune.
 - `04_format` creates a json file ready to be used for finetuning with the Alpaca dataset format.
 
-After these steps, head over to [this collab notebook](https://colab.research.google.com/drive/1gIzuNutwRh08iuRhQmNAti2wDB2X4fmJ?usp=sharing) to finetune a base model. We are using an edited version of an original notebook by the [unsloth team](https://github.com/unslothai/unsloth). Props to them!
+If you want to use a corpus of text you already have, or want to extract one from a PDF (check Part 2 to find out how), you can disregard scripts `01 / 02`.
+
+Once your finetune dataset is ready, head over to [this collab notebook](https://colab.research.google.com/drive/1gIzuNutwRh08iuRhQmNAti2wDB2X4fmJ?usp=sharing) to finetune a base model. We are using an edited version of an original notebook by the [unsloth team](https://github.com/unslothai/unsloth). Props to them!
 
 **Use this as a starting point to understand how finetune datasets need to be formatted, and then go build your own. Unsloth gives you plenty of options when choosing a base model. Think about which would work best for your usecase**
