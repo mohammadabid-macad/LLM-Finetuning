@@ -1,0 +1,17 @@
+# ignore ALL files specified here
+keys.py
+
+# ignore ALL files in ANY directory specified here
+myenv/
+__pycache__/
+.cache/
+
+# ignore all files in a directory except the ones specified here
+scrape_data/*
+!scrape_data/3-Juxta_House__Kee_Yen_Architects.txt
+
+dataset/*
+!dataset/clean_text.txt
+!dataset/raw_text.txt
+!dataset/summary_text.txt
+!dataset/structured_dataset.json
