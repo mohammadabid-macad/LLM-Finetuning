@@ -1,22 +1,16 @@
 import os
-from transformers import AutoTokenizer
-import json
-import requests
-import re
-import os
-import json
 from keys import *
 from config import *
 
-# Readme: This script will take any txt file collected in the previous script and merge it into a single txt file.
+# Readme: This script will take any txt file collected before and merge it into a single file.
 # It will output a clean_text.txt
 
 # Path to the .txt files
 directory = 'scrape_data'
-
 txt_files = [filename for filename in os.listdir(directory) if filename.endswith('.txt')]
 
-txt_files = txt_files[:50] # How many projects to use
+# Choose how many projects to use for finetuning
+txt_files = txt_files[:50] 
 
 # Cleanup text
 merged_text = []
@@ -28,7 +22,7 @@ for filename in txt_files:
         file_content = '\n'.join(non_empty_lines)
         merged_text.append(file_content)
 
-# Save to txt file
+# Export to txt file
 output_file = 'dataset/clean_text.txt'
 with open(output_file, 'w') as file:
     for content in merged_text:

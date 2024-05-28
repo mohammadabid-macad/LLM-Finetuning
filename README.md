@@ -22,13 +22,13 @@ git clone https://github.com/jomi13/LLM-Finetuning
 ## Running
 
 --This project contains a few scripts that can help you build a custom dataset for finetune:
-- `01_scrape_text` is an example of a web scraper that collects a text corpus.
+- `01_scrape` is an example of a scraper that collects text corpus from webpages.
 - `02_cleanup` merges and cleans the text collected previously. 
-- `03_summarize` adds an intermediate step of processing our text before we use it in finetune.
-- `04_format` creates a json file ready to be used for finetuning with the Alpaca dataset format.
+- `03_summarize` processes the text before its used to get a paired response for finetune.
+- `04_format` uses an LLM to create synthetic pairs of input-output. We structure our dataset for finetuning with the Alpaca format.
 
-If you want to use a corpus of text you already have, or want to extract one from a PDF (check Part 2 to find out how), you can disregard scripts `01 / 02`.
+--If you want to use a corpus of text that you already collected after parsing a PDF (check Part 2 to learn how), you can disregard scripts `01 / 02` or even `03` if you don´t need any post-processing step (summarization, formatting, classification, etc).
 
-Once your finetune dataset is ready, head over to [this collab notebook](https://colab.research.google.com/drive/1gIzuNutwRh08iuRhQmNAti2wDB2X4fmJ?usp=sharing) to finetune a base model. We are using an edited version of an original notebook by the [unsloth team](https://github.com/unslothai/unsloth). Props to them!
+--Once your dataset is ready, head over to [this Collab Notebook](https://colab.research.google.com/drive/1gIzuNutwRh08iuRhQmNAti2wDB2X4fmJ?usp=sharing) to finetune a base model of choice. We are using an edited version of a notebook by the [unsloth team](https://github.com/unslothai/unsloth). Props to them!
 
-**Use this as a starting point to understand how finetune datasets need to be formatted, and then go build your own. Unsloth gives you plenty of options when choosing a base model. Think about which would work best for your usecase**
+**Use this repo as a starting point to understand how to format Finetune Datasets, and then go build your own. Unsloth gives you plenty of options when choosing a base model. Think about which would work best for your usecase.**
