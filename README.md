@@ -2,7 +2,7 @@
 
 The repository contains **Part 3** of an LLM Pipeline for Design Exploration.
 
-This project covers different techniques to collect, clean process and format a text dataset to be used for LLM finetuning - checkout [Part 1](https://github.com/jomi13/LLM-Knowledge-Pool-RAG) and [Part 2](https://github.com/jomi13/LLM-Conversational-Agents) first.
+This project covers collecting, cleaning and formatting a text dataset to be used for LLM finetuning - checkout [Part 1](https://github.com/jomi13/LLM-Knowledge-Pool-RAG) and [Part 2](https://github.com/jomi13/LLM-Conversational-Agents) first.
 
 ## Setup
 1. Clone this repo into the same parent folder as the previous repos.
