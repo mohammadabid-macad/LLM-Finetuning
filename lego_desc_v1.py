@@ -12,21 +12,33 @@ website = "https://brickset.com/sets/year-2024/theme-Star-Wars"
 wait_time = 10
 num_pages = 10
 
-# Extract the set details from the webpage
+# Extract the set details and description from the webpage
 def get_set_details(driver, set_url):
     driver.get(set_url)
     WebDriverWait(driver, wait_time).until(EC.presence_of_element_located((By.CSS_SELECTOR, ".featurebox")))
     details_section = driver.find_element(By.CSS_SELECTOR, "section.featurebox")
     details_text = details_section.text
-    return details_text
+    
+    # Extract the description
+    description = ""
+    try:
+        description_section = driver.find_element(By.CSS_SELECTOR, ".description")
+        description = description_section.text
+    except Exception as e:
+        print(f"No description found for {set_url}")
+    
+    return details_text, description
 
 # Save the scraped data
-def save_data(filename, set_details):
+def save_data(filename, set_details, description):
     directory = "scrape_data"
     if not os.path.exists(directory):
         os.makedirs(directory)
     filepath = os.path.join(directory, filename)
     with open(filepath, "w", encoding="utf-8") as file:
+        file.write("DESCRIPTION\n")
+        file.write(description + "\n\n")
+        file.write("DETAILS\n")
         file.write(set_details)
 
 # Run 
@@ -64,11 +76,11 @@ for set_link in set_links:
         print(f"Processing {set_link}")
         set_number = set_link.split('/')[-1]
         
-        # Get set details
-        set_details = get_set_details(driver, set_link)
+        # Get set details and description
+        set_details, description = get_set_details(driver, set_link)
         
         # Save each set's details to a file named by set number
-        save_data(f"{set_number}.txt", set_details)
+        save_data(f"{set_number}.txt", set_details, description)
 
     except Exception as e:
         print(f"Error processing {set_link}: {e}")
